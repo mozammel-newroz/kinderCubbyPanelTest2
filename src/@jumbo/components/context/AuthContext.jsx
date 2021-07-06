@@ -11,6 +11,7 @@ export default function AuthContextProvider(props) {
     return localData ? JSON.parse(localData) : {};
   });
 
+
   const login = async data => {
     let user = jwt(data.access_token);
     console.log('user', user);

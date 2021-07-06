@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+import { useCookies } from 'react-cookie';
 import GridContainer from '../../../@jumbo/components/GridContainer';
 import PageContainer from '../../../@jumbo/components/PageComponents/layouts/PageContainer';
 import IntlMessages from '../../../@jumbo/utils/IntlMessages';
@@ -12,6 +14,16 @@ const breadcrumbs = [
 ];
 
 const SamplePage = () => {
+  const [cookies, setCookie] = useCookies(['k_token']);
+  const handleClick = async () => {
+    console.log('click');
+    const res = await axios({
+      url: 'http://65.2.57.194:6001/api/v1/configuration/degree/',
+      method: 'get',
+      data: { token: cookies.k_token },
+    });
+    console.log('data', res.data.data);
+  };
   return (
     <PageContainer heading={<IntlMessages id="pages.samplePage" />} breadcrumbs={breadcrumbs}>
       <GridContainer>
@@ -22,7 +34,8 @@ const SamplePage = () => {
           <Divider />
           <div style={{ marginTop: 24 }}>
             <h3>Knowledge Base and Support</h3>
-            <SidebarButtons />
+            {cookies.k_token}
+            <button onClick={handleClick}>Click Now</button>
           </div>
         </Grid>
       </GridContainer>

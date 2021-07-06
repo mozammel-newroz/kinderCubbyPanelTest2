@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import GridContainer from '../../../@jumbo/components/GridContainer';
 import PageContainer from '../../../@jumbo/components/PageComponents/layouts/PageContainer';
 import IntlMessages from '../../../@jumbo/utils/IntlMessages';
@@ -13,6 +13,7 @@ const breadcrumbs = [
 ];
 
 const DemoPage = () => {
+  const [name, setName] = useState('test name');
   return (
     <PageContainer heading={<IntlMessages id="DemoPage" />} breadcrumbs={breadcrumbs}>
       <GridContainer style={{ marginTop: 100 }}>
@@ -21,7 +22,7 @@ const DemoPage = () => {
             <CardContent>
               <h3>headline</h3>
               <h2>headline</h2>
-              <h1>Headline</h1>
+              <h1>{name}</h1>
               <Typography variant="h1">Headline h1</Typography>
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto odio modi repellendus? Error deleniti

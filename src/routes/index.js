@@ -10,6 +10,7 @@ import ForgotPasswordPage from './Auth/ForgotPassword';
 import DemoPage from './Pages/demo/DemoPage';
 import Home from './Pages/Listing';
 import { AuthContext } from '@jumbo/components/context/AuthContext';
+import HobbyIndex from './Pages/hobby/HobbyIndex';
 
 const RestrictedRoute = ({ component: Component, ...rest }) => {
   const { kinderCubby_auth } = useContext(AuthContext);
@@ -46,6 +47,11 @@ const Routes = () => {
   return (
     <React.Fragment>
       <Switch>
+
+      <RestrictedRoute exact path="/hobby" component={HobbyIndex} />
+
+
+
         <RestrictedRoute exact path="/" component={Home} />
         <RestrictedRoute exact path="/home" component={Home} />
         <RestrictedRoute path="/demo-page" component={DemoPage} />

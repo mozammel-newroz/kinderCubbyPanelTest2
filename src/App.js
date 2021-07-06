@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { CookiesProvider } from 'react-cookie';
 
 import { ConnectedRouter } from 'connected-react-router';
 import { Provider } from 'react-redux';
@@ -11,6 +12,8 @@ import AppWrapper from './@jumbo/components/AppWrapper';
 import AppContextProvider from './@jumbo/components/contextProvider/AppContextProvider';
 import Routes from './routes';
 import AuthContextProvider from '@jumbo/components/context/AuthContext';
+import ItemsContextProvider from '@jumbo/components/context/pageContext/ItemsContext';
+import ControlContextProvider from '@jumbo/components/context/pageContext/ControlContext';
 
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 axios.defaults.headers.common['Content-Type'] = 'application/json';
@@ -20,15 +23,21 @@ export const store = configureStore();
 const App = () => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <AppContextProvider>
-        <AuthContextProvider>
-          <AppWrapper>
-            <Switch>
-              <Routes />
-            </Switch>
-          </AppWrapper>
-        </AuthContextProvider>
-      </AppContextProvider>
+      <CookiesProvider>
+        <AppContextProvider>
+          <AuthContextProvider>
+            <ControlContextProvider>
+              <ItemsContextProvider>
+                <AppWrapper>
+                  <Switch>
+                    <Routes />
+                  </Switch>
+                </AppWrapper>
+              </ItemsContextProvider>
+            </ControlContextProvider>
+          </AuthContextProvider>
+        </AppContextProvider>
+      </CookiesProvider>
     </ConnectedRouter>
   </Provider>
 );

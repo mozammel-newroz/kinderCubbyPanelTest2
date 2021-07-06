@@ -43,6 +43,12 @@ const navigationMenus = [
         icon: <PostAdd />,
         link: '/demo-page',
       },
+      {
+        name: 'Hobby',
+        type: 'item',
+        icon: <PostAdd />,
+        link: '/hobby',
+      },
     ],
   },
 ];
