@@ -11,6 +11,13 @@ import DemoPage from './Pages/demo/DemoPage';
 import Home from './Pages/Listing';
 import { AuthContext } from '@jumbo/components/context/AuthContext';
 import HobbyIndex from './Pages/hobby/HobbyIndex';
+import SkillIndex from './Pages/skill/SkillIndex';
+import DegreeIndex from './Pages/degree/DegreeIndex';
+import AllergyIndex from './Pages/allergy/AllergyIndex';
+
+import GenreIndex from './Pages/book/genre/GenreIndex';
+import AuthorIndex from './Pages/book/author/AuthorIndex';
+import PublicationIndex from './Pages/book/publication/PublicationIndex';
 
 const RestrictedRoute = ({ component: Component, ...rest }) => {
   const { kinderCubby_auth } = useContext(AuthContext);
@@ -47,10 +54,13 @@ const Routes = () => {
   return (
     <React.Fragment>
       <Switch>
-
-      <RestrictedRoute exact path="/hobby" component={HobbyIndex} />
-
-
+        <RestrictedRoute exact path="/hobby" component={HobbyIndex} />
+        <RestrictedRoute exact path="/skill" component={SkillIndex} />
+        <RestrictedRoute exact path="/degree" component={DegreeIndex} />
+        <RestrictedRoute exact path="/allergy" component={AllergyIndex} />
+        <RestrictedRoute exact path="/genre" component={GenreIndex} />
+        <RestrictedRoute exact path="/publication" component={PublicationIndex} />
+        <RestrictedRoute exact path="/author" component={AuthorIndex} />
 
         <RestrictedRoute exact path="/" component={Home} />
         <RestrictedRoute exact path="/home" component={Home} />

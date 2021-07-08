@@ -2,9 +2,9 @@ export const sidebarLightTheme = {
   bgColor: '#fff',
   textColor: 'rgba(0, 0, 0, 0.6)',
   textDarkColor: 'rgba(0, 0, 0, 0.87)',
-  textActiveColor: '#6200EE',
-  navHoverBgColor: 'rgb(229, 229, 229)',
-  navActiveBgColor: 'rgb(239, 229, 253)',
+  textActiveColor: '#134494',
+  navHoverBgColor: 'rgba(0, 68, 144, 0.1)',
+  navActiveBgColor: 'rgba(0, 68, 144, 0.2)',
   borderColor: 'rgba(33, 33, 33, 0.08)',
   ...JSON.parse(localStorage.getItem('sidebar-colors')),
 };

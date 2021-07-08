@@ -16,6 +16,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     padding: '30px 16px 12px 16px',
     borderBottom: props => `solid 1px ${props.sidebarTheme.borderColor}`,
+    marginBottom: 10,
   },
   userInfo: {
     paddingTop: 24,
@@ -101,14 +102,14 @@ const SidebarHeader = () => {
           }}>
           <Paper elevation={8}>
             <MenuList>
-              <MenuItem onClick={handlePopoverClose}>
+              {/* <MenuItem onClick={handlePopoverClose}>
                 <PersonIcon />
                 <div className="ml-2">Profile</div>
               </MenuItem>
               <MenuItem onClick={handlePopoverClose}>
                 <SettingsIcon />
                 <div className="ml-2">Settings</div>
-              </MenuItem>
+              </MenuItem> */}
               <MenuItem onClick={onLogoutClick}>
                 <ExitToAppIcon />
                 <div className="ml-2">Logout</div>

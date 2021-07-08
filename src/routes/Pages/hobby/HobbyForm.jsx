@@ -66,6 +66,7 @@ const HobbyForm = () => {
         title,
         status,
       };
+      console.log('data', data, control.data.id);
       let res = await axios({
         url: `/api/v1/configuration/hobby/${control.data.id}/`,
         method: 'PUT',
@@ -93,7 +94,7 @@ const HobbyForm = () => {
     setLoading(false);
   };
 
-  const handleCancel = () => {
+  const handleCancel =  () => {
     changeControl('create', { title: '', status: false, id: 'create' });
     setTitle('');
     setStatus(false);
@@ -111,9 +112,12 @@ const HobbyForm = () => {
         left: 70,
         behavior: 'smooth',
       });
-      
     }
   }, [control.id]);
+
+  useEffect(() => {
+    handleCancel();
+  }, []);
 
   return (
     <>
@@ -131,7 +135,7 @@ const HobbyForm = () => {
         <CardContent>
           {control.action === 'edit' ? (
             <div>
-              <h3>Update Hobby</h3>
+              <h3>Edit Information</h3>
               <form onSubmit={handleUpdate}>
                 <GridContainer>
                   <Grid item md={12}>
@@ -149,7 +153,7 @@ const HobbyForm = () => {
                   </Grid>
                   <Grid item md={12}>
                     <Button variant="contained" color="primary" type="submit">
-                      Edit Hobby
+                      Update
                     </Button>
                     <Button color="secondary" onClick={handleCancel}>
                       Cancel
@@ -182,7 +186,7 @@ const HobbyForm = () => {
                   </Grid>
                   <Grid item md={12}>
                     <Button variant="contained" color="primary" type="submit">
-                      Add New Hobby
+                      Add Hobby
                     </Button>
                   </Grid>
                 </GridContainer>

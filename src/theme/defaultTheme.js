@@ -31,12 +31,12 @@ const defaultTheme = {
       dark: '#020202',
     },
     primary: {
-      main: '#6200EE',
-      dark: '#3700B3',
+      main: '#FE5C34',
+      dark: '#ff7675',
       contrastText: '#fff',
     },
     secondary: {
-      main: '#03DAC5',
+      main: '#004490',
       dark: '#018786',
       contrastText: '#fff',
     },

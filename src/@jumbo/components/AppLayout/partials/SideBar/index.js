@@ -5,7 +5,19 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 
 import CmtVertical from '../../../../../@coremat/CmtNavigation/Vertical';
 import IntlMessages from '../../../../utils/IntlMessages';
-import { PostAdd } from '@material-ui/icons';
+import { Home, PostAdd } from '@material-ui/icons';
+import SchoolIcon from '@material-ui/icons/School';
+import ListAltIcon from '@material-ui/icons/ListAlt';
+import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
+import BugReportIcon from '@material-ui/icons/BugReport';
+import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
+import PersonIcon from '@material-ui/icons/Person';
+import GrainIcon from '@material-ui/icons/Grain';
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
+import TrendingUpIcon from '@material-ui/icons/TrendingUp';
+import EqualizerIcon from '@material-ui/icons/Equalizer';
 
 const useStyles = makeStyles(() => ({
   perfectScrollbarSidebar: {
@@ -28,14 +40,57 @@ const useStyles = makeStyles(() => ({
 
 const navigationMenus = [
   {
-    name: <IntlMessages id={'sidebar.main'} />,
-    type: 'section',
+    name: 'Dashboard',
+    type: 'item',
+    icon: <EqualizerIcon />,
+    link: '/home',
+  },
+  {
+    name: 'Hobby',
+    type: 'item',
+    icon: <FavoriteBorder />,
+    link: '/hobby',
+  },
+  {
+    name: 'Skill',
+    type: 'item',
+    icon: <TrendingUpIcon />,
+    link: '/skill',
+  },
+  {
+    name: 'Degree',
+    type: 'item',
+    icon: <SchoolIcon />,
+    link: '/degree',
+  },
+  {
+    name: 'Allergy',
+    type: 'item',
+    icon: <BugReportIcon />,
+    link: '/allergy',
+  },
+  {
+    name: 'Book',
+    type: 'collapse',
+    icon: <MenuBookIcon />,
     children: [
       {
-        name: 'Hobby',
+        name: 'Genre',
         type: 'item',
-        icon: <PostAdd />,
-        link: '/hobby',
+        icon: <GrainIcon />,
+        link: '/genre',
+      },
+      {
+        name: 'Publication',
+        type: 'item',
+        icon: <AccountBalanceIcon />,
+        link: '/publication',
+      },
+      {
+        name: 'Author',
+        type: 'item',
+        icon: <PersonIcon />,
+        link: '/author',
       },
     ],
   },

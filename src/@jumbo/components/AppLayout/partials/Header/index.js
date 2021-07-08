@@ -18,6 +18,7 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: 16,
     paddingRight: 16,
     minHeight: 64,
+    background: '#0b4295',
     [theme.breakpoints.up('md')]: {
       minHeight: 72,
     },
@@ -98,7 +99,7 @@ const Header = () => {
       {/* <HeaderMessages /> */}
       <HeaderNotifications />
       {/* <Box className={classes.langRoot}> */}
-        {/* <LanguageSwitcher /> */}
+      {/* <LanguageSwitcher /> */}
       {/* </Box> */}
     </Toolbar>
   );

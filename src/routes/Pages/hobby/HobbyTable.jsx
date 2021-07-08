@@ -39,6 +39,7 @@ import { ControlContext } from '@jumbo/components/context/pageContext/ControlCon
 const useStyles = makeStyles(theme => ({
   root: {
     flexShrink: 0,
+
     marginLeft: theme.spacing(5),
   },
 }));
@@ -49,6 +50,10 @@ const useStyles2 = makeStyles(theme => ({
   },
   table: {
     minWidth: 500,
+  },
+  dialogButtonSection: {
+    padding: '8px 20px',
+    justifyContent: 'space-between',
   },
 }));
 
@@ -167,7 +172,7 @@ const HobbyTable = () => {
 
           <div>{}</div>
 
-          <TableContainer component={Paper} className={classes.root}>
+          <TableContainer component={Paper} className={classes.root} style={{ maxHeight: '80vh' }}>
             <Table className={classes.table} aria-label="custom pagination table">
               <TableBody>
                 <TableRow>
@@ -223,8 +228,8 @@ const HobbyTable = () => {
             aria-describedby="alert-dialog-description">
             <DialogTitle id="alert-dialog-title">{'Are you sure to delete?'}</DialogTitle>
 
-            <DialogActions>
-              <Button onClick={handleCloseDelete} color="primary">
+            <DialogActions className={classes.dialogButtonSection}>
+              <Button onClick={handleCloseDelete} >
                 Cancel
               </Button>
               <Button onClick={handleDelete} color="primary" autoFocus>
