@@ -123,6 +123,30 @@ const HobbyTable = () => {
     changeControl('edit', item);
   };
 
+  const pageLoading = () => {
+    let content = [];
+    for (let i = 0; i < 10; i++) {
+      content.push(
+        <TableRow key={i}>
+          <TableCell>
+            <Skeleton></Skeleton>
+          </TableCell>
+          <TableCell>
+            <Skeleton variant="circle">
+              <Avatar />
+            </Skeleton>
+          </TableCell>
+          <TableCell>
+            <Skeleton variant="circle">
+              <Avatar />
+            </Skeleton>
+          </TableCell>
+        </TableRow>,
+      );
+    }
+    return content;
+  };
+
   useEffect(() => {
     getData();
   }, []);
@@ -140,6 +164,8 @@ const HobbyTable = () => {
               {message}
             </Alert>
           </Snackbar>
+
+          <div>{}</div>
 
           <TableContainer component={Paper} className={classes.root}>
             <Table className={classes.table} aria-label="custom pagination table">
@@ -173,83 +199,7 @@ const HobbyTable = () => {
                     </TableRow>
                   ))
                 ) : (
-                  <>
-                    <TableRow>
-                      <TableCell>
-                        <Skeleton></Skeleton>
-                      </TableCell>
-                      <TableCell>
-                        <Skeleton variant="circle">
-                          <Avatar />
-                        </Skeleton>
-                      </TableCell>
-                      <TableCell>
-                        <Skeleton variant="circle">
-                          <Avatar />
-                        </Skeleton>
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>
-                        <Skeleton></Skeleton>
-                      </TableCell>
-                      <TableCell>
-                        <Skeleton variant="circle">
-                          <Avatar />
-                        </Skeleton>
-                      </TableCell>
-                      <TableCell>
-                        <Skeleton variant="circle">
-                          <Avatar />
-                        </Skeleton>
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>
-                        <Skeleton></Skeleton>
-                      </TableCell>
-                      <TableCell>
-                        <Skeleton variant="circle">
-                          <Avatar />
-                        </Skeleton>
-                      </TableCell>
-                      <TableCell>
-                        <Skeleton variant="circle">
-                          <Avatar />
-                        </Skeleton>
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>
-                        <Skeleton></Skeleton>
-                      </TableCell>
-                      <TableCell>
-                        <Skeleton variant="circle">
-                          <Avatar />
-                        </Skeleton>
-                      </TableCell>
-                      <TableCell>
-                        <Skeleton variant="circle">
-                          <Avatar />
-                        </Skeleton>
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>
-                        <Skeleton></Skeleton>
-                      </TableCell>
-                      <TableCell>
-                        <Skeleton variant="circle">
-                          <Avatar />
-                        </Skeleton>
-                      </TableCell>
-                      <TableCell>
-                        <Skeleton variant="circle">
-                          <Avatar />
-                        </Skeleton>
-                      </TableCell>
-                    </TableRow>
-                  </>
+                  <>{pageLoading()}</>
                 )}
 
                 {!loading && items.length < 0 ? (

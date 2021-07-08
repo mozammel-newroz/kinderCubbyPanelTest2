@@ -105,6 +105,13 @@ const HobbyForm = () => {
       setTitle(control.data.title);
       setStatus(control.data.status);
       setId(control.data.id);
+
+      window.scrollTo({
+        top: 70,
+        left: 70,
+        behavior: 'smooth',
+      });
+      
     }
   }, [control.id]);
 
@@ -120,7 +127,7 @@ const HobbyForm = () => {
         </Alert>
       </Snackbar>
       {loading ? <LinearProgress /> : null}
-      <Card style={{ height: '100%' }}>
+      <Card>
         <CardContent>
           {control.action === 'edit' ? (
             <div>

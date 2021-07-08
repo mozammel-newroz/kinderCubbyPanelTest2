@@ -7,7 +7,6 @@ const ControlContextProvider = props => {
   const [control, dispatch] = useReducer(controlReducer, {});
 
   const changeControl = (text, data) => {
-    console.log('ccc', text, data);
     let id = ''
     if(data.id){
       id = data.id

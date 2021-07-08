@@ -32,18 +32,6 @@ const navigationMenus = [
     type: 'section',
     children: [
       {
-        name: <IntlMessages id={'pages.samplePage'} />,
-        type: 'item',
-        icon: <PostAdd />,
-        link: '/sample-page',
-      },
-      {
-        name: 'Demo',
-        type: 'item',
-        icon: <PostAdd />,
-        link: '/demo-page',
-      },
-      {
         name: 'Hobby',
         type: 'item',
         icon: <PostAdd />,
