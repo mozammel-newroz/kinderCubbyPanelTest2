@@ -92,6 +92,12 @@ const navigationMenus = [
         icon: <PersonIcon />,
         link: '/author',
       },
+      {
+        name: 'Book',
+        type: 'item',
+        icon: <MenuBookIcon />,
+        link: '/book',
+      },
     ],
   },
 ];

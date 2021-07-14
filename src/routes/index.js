@@ -17,6 +17,7 @@ import AllergyIndex from './Pages/allergy/AllergyIndex';
 
 import GenreIndex from './Pages/book/genre/GenreIndex';
 import AuthorIndex from './Pages/book/author/AuthorIndex';
+import BookIndex from './Pages/book/book/BookIndex';
 import PublicationIndex from './Pages/book/publication/PublicationIndex';
 
 const RestrictedRoute = ({ component: Component, ...rest }) => {
@@ -61,6 +62,7 @@ const Routes = () => {
         <RestrictedRoute exact path="/genre" component={GenreIndex} />
         <RestrictedRoute exact path="/publication" component={PublicationIndex} />
         <RestrictedRoute exact path="/author" component={AuthorIndex} />
+        <RestrictedRoute exact path="/book" component={BookIndex} />
 
         <RestrictedRoute exact path="/" component={Home} />
         <RestrictedRoute exact path="/home" component={Home} />
