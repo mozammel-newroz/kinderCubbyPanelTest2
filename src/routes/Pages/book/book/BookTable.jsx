@@ -195,33 +195,31 @@ const BookTable = () => {
                     Action
                   </TableCell>
                 </TableRow>
-                {!loading ? (
-                  items.map((item, index) => (
-                    <TableRow key={index}>
-                      <TableCell component="th" scope="row">
-                        {item.name}
-                      </TableCell>
-                      <TableCell style={{ width: 160 }}>{item.publication[0].name}</TableCell>
-                      <TableCell style={{ width: 80 }}>
-                        <img src={item.cover_image ? item.cover_image : NoImage} alt="" width="40px" height="40px" />
-                      </TableCell>
+                {!loading
+                  ? items.map((item, index) => (
+                      <TableRow key={index}>
+                        <TableCell component="th" scope="row">
+                          {item.name}
+                        </TableCell>
+                        <TableCell style={{ width: 160 }}>{item.publication ? item.publication[0].name : null}</TableCell>
+                        <TableCell style={{ width: 80 }}>
+                          <img src={item.cover_image ? item.cover_image : NoImage} alt="" width="40px" height="40px" />
+                        </TableCell>
 
-                      <TableCell style={{ width: 180 }} align="right">
-                        <IconButton aria-label="view" className={classes.margin} onClick={() => handleClickView(item)}>
-                          <VisibilityIcon fontSize="small" color="primary" />
-                        </IconButton>
-                        <IconButton aria-label="edit" className={classes.margin} onClick={() => handleClickEdit(item)}>
-                          <Edit fontSize="small" color="primary" />
-                        </IconButton>
-                        <IconButton aria-label="delete" className={classes.margin} onClick={e => clickOnDelete(item.id)}>
-                          <DeleteIcon fontSize="small" color="primary" />
-                        </IconButton>
-                      </TableCell>
-                    </TableRow>
-                  ))
-                ) : (
-                  <div> {pageLoading()}</div>
-                )}
+                        <TableCell style={{ width: 180 }} align="right">
+                          <IconButton aria-label="view" className={classes.margin} onClick={() => handleClickView(item)}>
+                            <VisibilityIcon fontSize="small" color="primary" />
+                          </IconButton>
+                          <IconButton aria-label="edit" className={classes.margin} onClick={() => handleClickEdit(item)}>
+                            <Edit fontSize="small" color="primary" />
+                          </IconButton>
+                          <IconButton aria-label="delete" className={classes.margin} onClick={e => clickOnDelete(item.id)}>
+                            <DeleteIcon fontSize="small" color="primary" />
+                          </IconButton>
+                        </TableCell>
+                      </TableRow>
+                    ))
+                  : pageLoading()}
 
                 {!loading && items.length < 0 ? (
                   <TableRow>

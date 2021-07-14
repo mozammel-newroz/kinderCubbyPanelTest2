@@ -243,23 +243,15 @@ const BookForm = () => {
     setLoading(false);
   };
 
-  // const handleCancel = () => {
-  //   changeControl('create', {
-  //     name: '',
-  //     id: 'create'
-  //   });
-  //   setId(0);
-  //   setName('');
-  //   setAuthorValue('');
-  //   setGenreValue('');
-  //   setPublicationValue('');
-  //   setPublishedDate(new Date());
-  //   setPreview(NoImage);
-  // };
-
   const handleCancel = () => {
     changeControl('create', { title: '', status: false, id: 'create' });
-    // setTitle('');
+    setId(0);
+    setName('');
+    setAuthorValue('');
+    setGenreValue('');
+    setPublicationValue('');
+    setPublishedDate(new Date());
+    setPreview(NoImage);
     setStatus(false);
   };
 
