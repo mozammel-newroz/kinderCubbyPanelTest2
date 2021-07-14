@@ -220,8 +220,7 @@ const BookTable = () => {
                     </TableRow>
                   ))
                 ) : (
-                  // {pageLoading()}
-                  <p>12312</p>
+                  <div> {pageLoading()}</div>
                 )}
 
                 {!loading && items.length < 0 ? (
