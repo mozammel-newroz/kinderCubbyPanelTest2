@@ -246,14 +246,10 @@ const BookForm = () => {
   };
 
   const handleCancel = () => {
-<<<<<<< HEAD
     changeControl('create', {
       name: '',
       id: 'create',
     });
-=======
-    changeControl('create', { title: '', status: false, id: 'create' });
->>>>>>> db3bd4cd0683bf85ae87ad1f9fe5fe620d3e80be
     setId(0);
     setName('');
     setAuthorValue('');
@@ -261,10 +257,7 @@ const BookForm = () => {
     setPublicationValue('');
     setPublishedDate(new Date());
     setPreview(NoImage);
-<<<<<<< HEAD
-=======
     setStatus(false);
->>>>>>> db3bd4cd0683bf85ae87ad1f9fe5fe620d3e80be
   };
 
   // const handleCancel = () => {
@@ -280,6 +273,7 @@ const BookForm = () => {
       setAuthorValue(control.data.author ? control.data.author[0].id : '');
       setGenreValue(control.data.genre ? control.data.genre[0].id : '');
       setPublicationValue(control.data.publication ? control.data.publication[0].id : '');
+      setPublicationName(control.data.publication ? control.data.publication[0].name : '');
       setPublishedDate(control.data.published_at);
       setPreview(control.data.cover_image);
 

@@ -204,11 +204,7 @@ const BookTable = () => {
                         <TableCell component="th" scope="row">
                           {item.name}
                         </TableCell>
-<<<<<<< HEAD
                         <TableCell style={{ width: 160 }}>{item.publication ? item.publication[0].name : ''}</TableCell>
-=======
-                        <TableCell style={{ width: 160 }}>{item.publication ? item.publication[0].name : null}</TableCell>
->>>>>>> db3bd4cd0683bf85ae87ad1f9fe5fe620d3e80be
                         <TableCell style={{ width: 80 }}>
                           <img src={item.cover_image ? item.cover_image : NoImage} alt="" width="40px" height="40px" />
                         </TableCell>

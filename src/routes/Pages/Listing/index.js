@@ -29,8 +29,7 @@ const useStyles = makeStyles(theme => ({
 
 const breadcrumbs = [
   { label: 'Home', link: '/' },
-  { label: 'Dashboard', link: '/dashboard' },
-  { label: 'Listing', isActive: true },
+  { label: 'Dashboard', isActive: true },
 ];
 
 const ListingDashboard = () => {
