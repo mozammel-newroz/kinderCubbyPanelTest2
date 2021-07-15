@@ -246,10 +246,14 @@ const BookForm = () => {
   };
 
   const handleCancel = () => {
+<<<<<<< HEAD
     changeControl('create', {
       name: '',
       id: 'create',
     });
+=======
+    changeControl('create', { title: '', status: false, id: 'create' });
+>>>>>>> db3bd4cd0683bf85ae87ad1f9fe5fe620d3e80be
     setId(0);
     setName('');
     setAuthorValue('');
@@ -257,6 +261,10 @@ const BookForm = () => {
     setPublicationValue('');
     setPublishedDate(new Date());
     setPreview(NoImage);
+<<<<<<< HEAD
+=======
+    setStatus(false);
+>>>>>>> db3bd4cd0683bf85ae87ad1f9fe5fe620d3e80be
   };
 
   // const handleCancel = () => {
