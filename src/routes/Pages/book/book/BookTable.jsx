@@ -49,7 +49,9 @@ const useStyles2 = makeStyles(theme => ({
     justifyContent: 'space-between',
   },
   floatRigft: {
-    float: 'right',
+    position: 'absolute',
+    top: 3,
+    right: 3,
   },
 }));
 
@@ -90,6 +92,7 @@ const BookTable = () => {
         method: 'GET',
       });
       allItem(res.data.data);
+      console.log('book data', res.data.data);
     } catch (error) {
       setOpen(true);
       setMessageType('warning');
@@ -178,7 +181,7 @@ const BookTable = () => {
             </Alert>
           </Snackbar>
 
-          <TableContainer component={Paper} className={classes.root}>
+          <TableContainer component={Paper} className={classes.root} style={{ maxHeight: '80vh' }}>
             <Table className={classes.table} aria-label="custom pagination table">
               <TableBody>
                 <TableRow>
@@ -195,33 +198,31 @@ const BookTable = () => {
                     Action
                   </TableCell>
                 </TableRow>
-                {!loading ? (
-                  items.map((item, index) => (
-                    <TableRow key={index}>
-                      <TableCell component="th" scope="row">
-                        {item.name}
-                      </TableCell>
-                      <TableCell style={{ width: 160 }}>{item.publication[0].name}</TableCell>
-                      <TableCell style={{ width: 80 }}>
-                        <img src={item.cover_image ? item.cover_image : NoImage} alt="" width="40px" height="40px" />
-                      </TableCell>
+                {!loading
+                  ? items.map((item, index) => (
+                      <TableRow key={index}>
+                        <TableCell component="th" scope="row">
+                          {item.name}
+                        </TableCell>
+                        <TableCell style={{ width: 160 }}>{item.publication ? item.publication[0].name : ''}</TableCell>
+                        <TableCell style={{ width: 80 }}>
+                          <img src={item.cover_image ? item.cover_image : NoImage} alt="" width="40px" height="40px" />
+                        </TableCell>
 
-                      <TableCell style={{ width: 180 }} align="right">
-                        <IconButton aria-label="view" className={classes.margin} onClick={() => handleClickView(item)}>
-                          <VisibilityIcon fontSize="small" color="primary" />
-                        </IconButton>
-                        <IconButton aria-label="edit" className={classes.margin} onClick={() => handleClickEdit(item)}>
-                          <Edit fontSize="small" color="primary" />
-                        </IconButton>
-                        <IconButton aria-label="delete" className={classes.margin} onClick={e => clickOnDelete(item.id)}>
-                          <DeleteIcon fontSize="small" color="primary" />
-                        </IconButton>
-                      </TableCell>
-                    </TableRow>
-                  ))
-                ) : (
-                  <div> {pageLoading()}</div>
-                )}
+                        <TableCell style={{ width: 180 }} align="right">
+                          <IconButton aria-label="view" className={classes.margin} onClick={() => handleClickView(item)}>
+                            <VisibilityIcon fontSize="small" color="primary" />
+                          </IconButton>
+                          <IconButton aria-label="edit" className={classes.margin} onClick={() => handleClickEdit(item)}>
+                            <Edit fontSize="small" color="primary" />
+                          </IconButton>
+                          <IconButton aria-label="delete" className={classes.margin} onClick={e => clickOnDelete(item.id)}>
+                            <DeleteIcon fontSize="small" color="primary" />
+                          </IconButton>
+                        </TableCell>
+                      </TableRow>
+                    ))
+                  : pageLoading()}
 
                 {!loading && items.length < 0 ? (
                   <TableRow>
@@ -259,8 +260,9 @@ const BookTable = () => {
               aria-labelledby="alert-dialog-title"
               aria-describedby="alert-dialog-description">
               <DialogTitle id="alert-dialog-title">
-                {'Book Details'}
-                <Clear className={classes.floatRigft} onClick={handleCloseDetailView} />
+                <IconButton className={classes.floatRigft} onClick={handleCloseDetailView}>
+                  <Clear />
+                </IconButton>
               </DialogTitle>
 
               <DialogContent>
@@ -330,7 +332,9 @@ const BookTable = () => {
                               {detailViewItem.is_available ? (
                                 <Typography variant="h6">Available</Typography>
                               ) : (
-                                <Typography variant="h6">Not Available</Typography>
+                                <Typography variant="h6" style={{ color: 'red' }}>
+                                  Not Available
+                                </Typography>
                               )}
                             </TableCell>
                           </TableRow>
