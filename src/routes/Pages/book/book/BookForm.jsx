@@ -272,6 +272,7 @@ const BookForm = () => {
       setAuthorValue(control.data.author ? control.data.author[0].id : '');
       setGenreValue(control.data.genre ? control.data.genre[0].id : '');
       setPublicationValue(control.data.publication ? control.data.publication[0].id : '');
+      setPublicationName(control.data.publication ? control.data.publication[0].name : '');
       setPublishedDate(control.data.published_at);
       setPreview(control.data.cover_image);
 
