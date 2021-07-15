@@ -23,7 +23,7 @@ import { ControlContext } from '@jumbo/components/context/pageContext/ControlCon
 import { makeStyles } from '@material-ui/core/styles';
 import moment from 'moment';
 
-const NoImage = '/images/NoImage.jpg';
+const NoImage = '/images/icons/system.png';
 const useStyles = makeStyles(theme => ({
   input: {
     display: 'none',
@@ -91,6 +91,7 @@ const BookForm = () => {
         method: 'GET',
       });
       setAuthor(res.data.data);
+      console.log('author', res.data.data);
     } catch (error) {
       setOpen(true);
       setMessageType('warning');
@@ -236,6 +237,7 @@ const BookForm = () => {
       setMessageType('success');
       setMessage(res.data.message);
     } catch (error) {
+      console.log('err', error.response);
       setOpen(true);
       setMessageType('warning');
       setMessage(error.response.data.errors[0]);
@@ -244,7 +246,10 @@ const BookForm = () => {
   };
 
   const handleCancel = () => {
-    changeControl('create', { title: '', status: false, id: 'create' });
+    changeControl('create', {
+      name: '',
+      id: 'create',
+    });
     setId(0);
     setName('');
     setAuthorValue('');
@@ -252,19 +257,21 @@ const BookForm = () => {
     setPublicationValue('');
     setPublishedDate(new Date());
     setPreview(NoImage);
-    setStatus(false);
   };
 
+  // const handleCancel = () => {
+  //   changeControl('create', { title: '', status: false, id: 'create' });
+  //   // setTitle('');
+  //   setStatus(false);
+  // };
+
   useEffect(() => {
-    getAuthor();
-    getGenre();
-    getPublication();
     if (control.action === 'edit') {
       setId(control.data.id);
       setName(control.data.name);
-      setAuthorValue(control.data.author[0].id);
-      setGenreValue(control.data.genre[0].id);
-      setPublicationValue(control.data.publication[0].id);
+      setAuthorValue(control.data.author ? control.data.author[0].id : '');
+      setGenreValue(control.data.genre ? control.data.genre[0].id : '');
+      setPublicationValue(control.data.publication ? control.data.publication[0].id : '');
       setPublishedDate(control.data.published_at);
       setPreview(control.data.cover_image);
 
@@ -275,6 +282,13 @@ const BookForm = () => {
       });
     }
   }, [control.id]);
+
+  useEffect(() => {
+    handleCancel();
+    getAuthor();
+    getGenre();
+    getPublication();
+  }, []);
 
   return (
     <div>
@@ -387,7 +401,7 @@ const BookForm = () => {
                     />
 
                     <label htmlFor="contained-button-file">
-                      <Button variant="contained" color="primary" component="span" style={{ marginTop: '15px' }} fullWidth>
+                      <Button variant="outlined" color="primary" component="span" style={{ marginTop: '15px' }} fullWidth>
                         <PhotoCamera /> Upload Image
                       </Button>
                     </label>
@@ -511,7 +525,7 @@ const BookForm = () => {
                     />
 
                     <label htmlFor="contained-button-file">
-                      <Button variant="contained" color="primary" component="span" style={{ marginTop: '15px' }} fullWidth>
+                      <Button variant="outlined" color="primary" component="span" style={{ marginTop: '15px' }} fullWidth>
                         <PhotoCamera /> Upload Image
                       </Button>
                     </label>
