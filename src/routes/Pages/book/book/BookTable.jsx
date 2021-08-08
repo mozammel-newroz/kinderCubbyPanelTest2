@@ -206,7 +206,7 @@ const BookTable = () => {
                         </TableCell>
                         <TableCell style={{ width: 160 }}>{item.publication ? item.publication[0].name : ''}</TableCell>
                         <TableCell style={{ width: 80 }}>
-                          <img src={item.cover_image ? item.cover_image : NoImage} alt="" width="40px" height="40px" />
+                          <img src={item.cover_image ? item.cover_image : NoImage} alt=""  height="40px" />
                         </TableCell>
 
                         <TableCell style={{ width: 180 }} align="right">
@@ -276,7 +276,7 @@ const BookTable = () => {
                               <img
                                 src={detailViewItem.cover_image ? detailViewItem.cover_image : NoImage}
                                 alt=""
-                                width="80px"
+                                // width="80px"
                                 height="80px"
                                 style={{
                                   display: 'block',

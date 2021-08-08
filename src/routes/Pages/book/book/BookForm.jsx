@@ -383,7 +383,7 @@ const BookForm = () => {
                       <img
                         src={preview}
                         alt=""
-                        width="120px"
+                        // width="120px"
                         height="120px"
                         style={{
                           display: 'block',
@@ -507,7 +507,7 @@ const BookForm = () => {
                       <img
                         src={preview}
                         alt=""
-                        width="120px"
+                        // width="120px"
                         height="120px"
                         style={{
                           display: 'block',
